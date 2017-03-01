@@ -1,0 +1,57 @@
+{
+  "name": "campaignmonitor",
+  "version": "0.0.0",
+  "description": "Wrapper for campaign monitor api",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "run-s clean build",
+    "build:js": "babel src --out-dir lib --source-maps",
+    "clean": "rimraf lib",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "deploy": "npm run build && npm run release",
+    "dev": "run-p watch:build watch:start",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "release": "hz-release-public-module",
+    "start": "npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "run-p watch:*",
+    "watch:build": "babel -w src --out-dir lib --source-maps",
+    "watch:lint": "watch 'npm run lint' ./src",
+    "watch:start": "nodemon",
+    "watch:test": "nf run npm run watch:test:mocha",
+    "watch:test:mocha": "mocha -w --compilers js:babel-core/register -R dot ./src/**/*.test.js ./src/*.test.js"
+  },
+  "keywords": [
+    "campaignmonitor",
+    "createsend"
+  ],
+  "author": "homezen <engineering@myhomezen.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^4 || ^6 || ^7",
+    "npm": "^2 || ^3 || ^4"
+  },
+  "devDependencies": {
+    "@homezen/hz-npm-scripts": "^1.1.1",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.23.0",
+    "eslint": "^3.16.1",
+    "eslint-config-homezen": "^1.4.1",
+    "nodemon": "^1.11.0",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "node-fetch": "^1.6.3",
+    "npm-run-all": "^4.0.2"
+  },
+  "optionalDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-preset-env": "^1.1.10",
+    "babel-preset-stage-3": "^6.22.0",
+    "rimraf": "^2.6.1"
+  }
+}
