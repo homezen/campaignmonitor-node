@@ -1,20 +1,21 @@
 import fetch from 'node-fetch'
 
-const getEncodedAuthString = (apiKey) => Buffer.from(`${apiKey}:empty-password`).toString('base64')
+export const _getEncodedAuthString = (apiKey) =>
+    Buffer.from(`${apiKey}:empty-password`).toString('base64')
 
-const getRequestHeaders = ({apiKey}) => ({
+export const _getRequestHeaders = ({apiKey}) => ({
     'Content-Type': 'application/json',
-    Authorization: `Basic  ${getEncodedAuthString(apiKey)}`,
+    Authorization: `Basic ${_getEncodedAuthString(apiKey)}`,
 })
 
-const baseUrl = 'https://api.createsend.com/api/v3.1'
+export const BASE_URL = 'https://api.createsend.com/api/v3.1'
 
 
 export const addSubscriber = (listId, details, options) => {
-    return fetch(`${baseUrl}/subscribers/${listId}.json`, {
+    return fetch(`${BASE_URL}/subscribers/${listId}.json`, {
         method: 'POST',
         body: JSON.stringify(details),
-        headers: getRequestHeaders(options),
+        headers: _getRequestHeaders(options),
     })
         .then((res) => res.json())
 }

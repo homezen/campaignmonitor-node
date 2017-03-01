@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/Users/patrick/npm/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'watch:test' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.1
+4 verbose run-script [ 'prewatch:test', 'watch:test', 'postwatch:test' ]
+5 info lifecycle campaignmonitor@0.0.0~prewatch:test: campaignmonitor@0.0.0
+6 silly lifecycle campaignmonitor@0.0.0~prewatch:test: no script for prewatch:test, continuing
+7 info lifecycle campaignmonitor@0.0.0~watch:test: campaignmonitor@0.0.0
+8 verbose lifecycle campaignmonitor@0.0.0~watch:test: unsafe-perm in lifecycle true
+9 verbose lifecycle campaignmonitor@0.0.0~watch:test: PATH: /Users/patrick/npm/lib/node_modules/npm/bin/node-gyp-bin:/Users/patrick/repos/homezen/campaignmonitor-node/node_modules/.bin:/Users/patrick/.rvm/gems/ruby-2.4.0/bin:/Users/patrick/.rvm/gems/ruby-2.4.0@global/bin:/Users/patrick/.rvm/rubies/ruby-2.4.0/bin:/Users/patrick/.rvm/bin:/Users/patrick/google-cloud-sdk/bin:/Users/patrick/.pyenv/shims:/Users/patrick/.pyenv/bin:/Users/patrick/.local/bin:/Users/patrick/bin:/Users/patrick/npm/bin:/Users/patrick/google_appengine:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/patrick/.rvm/bin:/Users/patrick/google-cloud-sdk/bin:/Users/patrick/.pyenv/shims:/Users/patrick/.pyenv/bin:/Users/patrick/.local/bin:/Users/patrick/bin:/Users/patrick/npm/bin:/Users/patrick/google_appengine:/Users/patrick/.rvm/gems/ruby-2.4.0/bin:/Users/patrick/.rvm/gems/ruby-2.4.0@global/bin:/Users/patrick/.rvm/rubies/ruby-2.4.0/bin:/usr/local/mongodb/bin:/usr/local/mongodb/bin
+10 verbose lifecycle campaignmonitor@0.0.0~watch:test: CWD: /Users/patrick/repos/homezen/campaignmonitor-node
+11 silly lifecycle campaignmonitor@0.0.0~watch:test: Args: [ '-c', 'nf run npm run watch:test:mocha' ]
+12 info lifecycle campaignmonitor@0.0.0~watch:test: Failed to exec watch:test script
+13 verbose stack Error: campaignmonitor@0.0.0 watch:test: `nf run npm run watch:test:mocha`
+13 verbose stack spawn ENOENT
+13 verbose stack     at ChildProcess.<anonymous> (/Users/patrick/npm/lib/node_modules/npm/lib/utils/spawn.js:33:16)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at ChildProcess.emit (events.js:191:7)
+13 verbose stack     at maybeClose (internal/child_process.js:877:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose pkgid campaignmonitor@0.0.0
+15 verbose cwd /Users/patrick/repos/homezen/campaignmonitor-node
+16 error Darwin 15.6.0
+17 error argv "/usr/local/bin/node" "/Users/patrick/npm/bin/npm" "run" "watch:test"
+18 error node v6.9.1
+19 error npm  v3.10.9
+20 error file sh
+21 error code ELIFECYCLE
+22 error errno ENOENT
+23 error syscall spawn
+24 error campaignmonitor@0.0.0 watch:test: `nf run npm run watch:test:mocha`
+24 error spawn ENOENT
+25 error Failed at the campaignmonitor@0.0.0 watch:test script 'nf run npm run watch:test:mocha'.
+25 error Make sure you have the latest version of node.js and npm installed.
+25 error If you do, this is most likely a problem with the campaignmonitor package,
+25 error not with npm itself.
+25 error Tell the author that this fails on your system:
+25 error     nf run npm run watch:test:mocha
+25 error You can get information on how to open an issue for this project with:
+25 error     npm bugs campaignmonitor
+25 error Or if that isn't available, you can get their info via:
+25 error     npm owner ls campaignmonitor
+25 error There is likely additional logging output above.
+26 verbose exit [ 1, true ]

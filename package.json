@@ -19,7 +19,7 @@
     "watch:build": "babel -w src --out-dir lib --source-maps",
     "watch:lint": "watch 'npm run lint' ./src",
     "watch:start": "nodemon",
-    "watch:test": "nf run npm run watch:test:mocha",
+    "watch:test": "npm run watch:test:mocha",
     "watch:test:mocha": "mocha -w --compilers js:babel-core/register -R dot ./src/**/*.test.js ./src/*.test.js"
   },
   "keywords": [
@@ -38,8 +38,14 @@
     "babel-eslint": "^7.1.1",
     "babel-polyfill": "^6.23.0",
     "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "eslint": "^3.16.1",
     "eslint-config-homezen": "^1.4.1",
+    "fetch-mock": "^5.9.4",
+    "http-status-codes": "^1.1.6",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.9",
     "nodemon": "^1.11.0",
     "watch": "^1.0.2"
   },
