@@ -1,0 +1,16 @@
+{
+    "plugins": [],
+    "presets": [
+        "stage-3",
+        ["env", {
+            "targets": {"node": "current"},
+            "useBuiltIns": true,
+            "debug": false
+        }]
+    ],
+    "env": {
+        "development": {"plugins": [ "lodash" ]},
+        "production": {"plugins": [ "lodash" ]},
+        "test": {"plugins": [ "istanbul" ]}
+    }
+}
