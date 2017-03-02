@@ -1,0 +1,32 @@
+general:
+    artifacts:
+        - 'npm-debug.log'
+
+machine:
+    ruby:
+        version: '2.2'
+    node:
+        version: '4.6'
+    environment:
+        MOCHA_REPORTER: spec
+
+dependencies:
+    pre:
+        - uname -a && . /etc/lsb-release && echo $DISTRIB_DESCRIPTION
+        - npm i -g npm@latest
+        - npm -v
+
+test:
+    pre:
+        - npm run lint
+    post:
+        - npm run codecov
+        - npm run test:mocha:junit
+
+deployment:
+    master:
+        branch: master
+        commands:
+            - cp .npmrc.ci .npmrc
+            - npm info || echo "no published package yet"
+            - npm run deploy

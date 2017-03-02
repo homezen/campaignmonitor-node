@@ -1,0 +1,82 @@
+{
+  "name": "campaign-monitor",
+  "version": "1.0.0",
+  "description": "Wrapper for campaign monitor api",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "run-s clean build:*",
+    "build:js": "babel src --out-dir lib --source-maps",
+    "clean": "rimraf lib",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "dev": "npm run watch",
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "release": "npm run build && hz-release-public-module",
+    "start": "npm run dev",
+    "test": "npm-run-all test:*",
+    "test:mocha": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha  --compilers js:babel-core/register ./src/**/*.js",
+    "test:mocha:junit": "mocha --compilers js:babel-core/register -R mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/mocha/docs-api.xml  ./src/**/*.test.js",
+    "tdd": "npm run watch:test",
+    "watch": "npm run watch:build & npm run watch:lint & npm run watch:test",
+    "watch:build": "babel src -w --out-dir lib --source-maps",
+    "watch:lint": "watch 'npm run lint' ./src",
+    "watch:test": "npm run watch:test:mocha",
+    "watch:test:mocha": "mocha -w --compilers js:babel-core/register --require babel-polyfill -R dot ./src/**/*.test.js ./src/*.test.js"
+  },
+  "keywords": [
+    "campaignmonitor",
+    "createsend"
+  ],
+  "author": "homezen <engineering@myhomezen.com>",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": "^4 || ^6 || ^7",
+    "npm": "^2 || ^3 || ^4"
+  },
+  "devDependencies": {
+    "@homezen/hz-npm-scripts": "^1.1.1",
+    "@homezen/hz-test-helpers": "^1.0.3",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^4.0.0",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "codecov": "^1.0.1",
+    "cross-env": "^3.1.4",
+    "eslint": "^3.16.1",
+    "eslint-config-homezen": "^1.4.1",
+    "http-status-codes": "^1.1.6",
+    "mocha": "^3.2.0",
+    "mocha-junit-reporter": "^1.13.0",
+    "nock": "^9.0.9",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^10.1.2-canidate.0",
+    "rimraf": "^2.6.1",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "lodash": "^4.17.4",
+    "superagent": "^3.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/homezen/campaignmonitor-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/homezen/campaignmonitor-node/issues"
+  },
+  "homepage": "https://github.com/homezen/campaignmonitor-node#readme",
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  }
+}
