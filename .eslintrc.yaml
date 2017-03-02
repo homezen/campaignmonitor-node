@@ -2,7 +2,6 @@
     root: true
     extends:
         - homezen
-        - homezen/node
         - homezen/es-next
         - homezen/es-modules
         - homezen/lodash
