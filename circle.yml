@@ -15,12 +15,6 @@ dependencies:
         - uname -a && . /etc/lsb-release && echo $DISTRIB_DESCRIPTION
         - npm i -g npm@latest
         - npm -v
-    post:
-        # Chrome 53 / Karma issue
-        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-        - sudo apt-get update
-        - sudo apt-get install -y --only-upgrade google-chrome-stable
 
 test:
     pre:

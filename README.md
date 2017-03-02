@@ -5,15 +5,24 @@
 
 node wrapper for campaign monitor api
 
-# Supported platform
+*Currently we are adding functions on an "as-needed" basis, if there is functionality you would like
+that we have not yet implemented, please open an issue or PR.*
 
-*   node v4.X and 6.X
-*   npm v3.X
+# Supported platforms
+
+Compatible with node, webpack, and browserify
+
 
 ## Getting Started
 
-1. `yarn` (or `npm i`)
-1. `npm start`
+```bash
+$ npm i --save campaign-monitor
+```
+
+```js
+import {addSubscriber} from 'campaign-monitor'
+```
+
 
 ### Running tests
 
@@ -29,9 +38,9 @@ npm test
 
 Builds the production assets suitable for release
 
-#### `npm run deploy`
+#### `npm run release`
 
-Git tags release and publishes to npm
+Builds, git tags release, and publishes to npm
 
 #### `npm start`
 
@@ -72,9 +81,4 @@ This will:
 1.  Publish to npm
 
 
-## Contributing
 
-PRs Encouraged!
-
-Currently we are adding functions on an "as-needed" basis, if there is functionality you would like
-that we have not yet implemented, please open an issue or PR.

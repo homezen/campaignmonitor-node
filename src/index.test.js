@@ -2,7 +2,8 @@
 
 import nock from 'nock'
 import {SUCCESS} from 'http-status-codes'
-import {expect} from './test-helpers'
+import base64 from 'base-64'
+import {expect} from '@homezen/hz-test-helpers'
 import {
     BASE_URL,
     addSubscriber,
@@ -14,7 +15,7 @@ describe('subscribers', () => {
     context('getEncodedAuthString', () => {
         it('uses apiKey for username in base64 encoded auth string', () => {
             const encodedAuthString = _getEncodedAuthString('qwerty')
-            const decodedAuthString = Buffer.from(encodedAuthString, 'base64').toString()
+            const decodedAuthString = base64.decode(encodedAuthString, 'base64')
             expect(decodedAuthString).to.equal('qwerty:empty-password')
         })
     })
