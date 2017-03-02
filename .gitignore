@@ -1,0 +1,10 @@
+.npmrc
+node_modules/
+lib/
+coverage/
+.nyc_output/
+coverage.lcov
+
+*.log
+npm-debug.log*
+Gemfile.lock

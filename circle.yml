@@ -1,0 +1,38 @@
+general:
+    artifacts:
+        - 'npm-debug.log'
+
+machine:
+    ruby:
+        version: '2.2'
+    node:
+        version: '4.6'
+    environment:
+        MOCHA_REPORTER: spec
+
+dependencies:
+    pre:
+        - uname -a && . /etc/lsb-release && echo $DISTRIB_DESCRIPTION
+        - npm i -g npm@latest
+        - npm -v
+    post:
+        # Chrome 53 / Karma issue
+        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        - sudo apt-get update
+        - sudo apt-get install -y --only-upgrade google-chrome-stable
+
+test:
+    pre:
+        - npm run lint
+    post:
+        - npm run codecov
+        - npm run test:mocha:junit
+
+deployment:
+    master:
+        branch: master
+        commands:
+            - cp .npmrc.ci .npmrc
+            - npm info || echo "no published package yet"
+            - npm run deploy
