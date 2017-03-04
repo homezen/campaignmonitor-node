@@ -1,12 +1,10 @@
 {
-    "plugins": [],
     "presets": [
-        "stage-3",
-        ["env", {
-            "targets": {"node": "current"},
-            "useBuiltIns": true,
-            "debug": false
-        }]
+        "es2015",
+        "stage-3"
+    ],
+    "plugins": [
+        "transform-runtime"
     ],
     "env": {
         "development": {"plugins": [ "lodash" ]},
