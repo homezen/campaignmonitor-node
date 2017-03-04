@@ -2,37 +2,16 @@
 
 import nock from 'nock'
 import {SUCCESS} from 'http-status-codes'
-import {expect} from './test-helpers'
-import {
+import base64 from 'base-64'
+import {expect} from '@homezen/hz-test-helpers'
+import campaignMonitor, {
     BASE_URL,
-    addSubscriber,
-    _getEncodedAuthString,
-    _getRequestHeaders,
 } from '.'
 
 describe('subscribers', () => {
-    context('getEncodedAuthString', () => {
-        it('uses apiKey for username in base64 encoded auth string', () => {
-            const encodedAuthString = _getEncodedAuthString('qwerty')
-            const decodedAuthString = Buffer.from(encodedAuthString, 'base64').toString()
-            expect(decodedAuthString).to.equal('qwerty:empty-password')
-        })
-    })
-
-    context('getRequestHeaders', () => {
-        it('sets Authorization header to basic auth with apiKey for username', () => {
-            const headers = _getRequestHeaders({apiKey: 'qwerty'})
-            expect(headers.Authorization).to.equal('Basic cXdlcnR5OmVtcHR5LXBhc3N3b3Jk')
-        })
-        it('sets Content-Type header to application/json', () => {
-            const headers = _getRequestHeaders({apiKey: 'qwerty'})
-            expect(headers['Content-Type']).to.equal('application/json')
-        })
-    })
-
     context('addSubscriber', () => {
+        const api = campaignMonitor({apiKey: 'qwerty'})
         const listId = '1234567'
-        const getOptions = () => ({apiKey: 'qwerty'})
         const getDetails = () => ({
             EmailAddress: 'add-subscriber-test@me.com',
             Name: 'John Smith',
@@ -44,7 +23,7 @@ describe('subscribers', () => {
             nock(BASE_URL)
                 .post('/subscribers/1234567.json')
                 .reply(SUCCESS, {})
-            return addSubscriber(listId, getDetails(), getOptions())
+            return api.addSubscriber(listId, getDetails())
         })
 
         it('calls api with correct auth header', () => {
@@ -52,7 +31,7 @@ describe('subscribers', () => {
                 .matchHeader('Authorization', 'Basic cXdlcnR5OmVtcHR5LXBhc3N3b3Jk')
                 .post('/subscribers/1234567.json')
                 .reply(SUCCESS, {})
-            return addSubscriber(listId, getDetails(), getOptions())
+            return api.addSubscriber(listId, getDetails())
         })
 
         it('returns successful response', () => {
@@ -60,7 +39,7 @@ describe('subscribers', () => {
             nock(BASE_URL)
                 .post('/subscribers/1234567.json', getDetails())
                 .reply(SUCCESS, mockResponse)
-            const response = addSubscriber(listId, getDetails(), getOptions())
+            const response = api.addSubscriber(listId, getDetails())
             return expect(response).to.eventually.deep.equal({result: 'add-subscriber-test@me.com'})
         })
 
@@ -68,7 +47,7 @@ describe('subscribers', () => {
             nock(BASE_URL)
                 .post('/subscribers/1234567.json', {})
                 .replyWithError('error occurred')
-            const response = addSubscriber(listId, getDetails(), getOptions())
+            const response = api.addSubscriber(listId, getDetails())
             return expect(response).to.eventually.be.rejectedWith('error occurred')
         })
 
