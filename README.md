@@ -1,19 +1,62 @@
-# campaignmonitor-node
+# Campaign Monitor API wrapper
 
 [![CircleCI](https://circleci.com/gh/homezen/campaignmonitor-node.svg?style=svg)](https://circleci.com/gh/homezen/campaignmonitor-node)
 [![codecov](https://codecov.io/gh/homezen/campaignmonitor-node/branch/master/graph/badge.svg)](https://codecov.io/gh/homezen/campaignmonitor-node)
 
-node wrapper for campaign monitor api
+Universal javascript wrapper for campaign monitor api
 
-# Supported platform
+## Supported platforms
 
-*   node v4.X and 6.X
-*   npm v3.X
+Compatible with node, webpack, and browserify
+
 
 ## Getting Started
 
-1. `yarn` (or `npm i`)
-1. `npm start`
+```bash
+$ npm i --save campaign-monitor
+```
+
+```js
+import campaignMonitor from 'campaign-monitor'
+```
+
+You must initialize the object with options before using.
+
+```js
+import campaignMonitor from 'campaign-monitor'
+
+const api = campaignMonitor(options)
+```
+
+## Options
+
+#### apiKey
+
+API key used for campaign monitor authentication - [campaign monitor
+docs](docshttps://www.campaignmonitor.com/api/getting-started/#authenticating-api-key)
+
+
+## API
+
+### Subscribers
+
+Uses [Campaign Monitor subscribers API](https://www.campaignmonitor.com/api/subscribers/)
+
+#### `addSubscriber`
+
+Adds subscriber to specified list
+
+Params
+
+- {string} - list ID - API Subscriber List ID from Campaign Monitor
+
+- {object} - request body - should map to fields in [subscriber api docs](https://www.campaignmonitor.com/api/subscribers/)
+
+Returns
+
+- Email address of user that was subscribed (see CM docs for more)
+
+## Development
 
 ### Running tests
 
@@ -24,14 +67,6 @@ npm test
 ```
 
 ### Other commands
-
-#### `npm run build`
-
-Builds the production assets suitable for release
-
-#### `npm run deploy`
-
-Git tags release and publishes to npm
 
 #### `npm start`
 
@@ -44,6 +79,15 @@ Run test watcher
 #### `npm run lint`
 
 Run linter
+
+#### `npm run build`
+
+Builds the production assets suitable for release
+
+#### `npm run release`
+
+Builds, git tags release, and publishes to npm
+
 
 ## CI/CD
 
@@ -72,9 +116,4 @@ This will:
 1.  Publish to npm
 
 
-## Contributing
 
-PRs Encouraged!
-
-Currently we are adding functions on an "as-needed" basis, if there is functionality you would like
-that we have not yet implemented, please open an issue or PR.
