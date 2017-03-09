@@ -29,4 +29,4 @@ deployment:
         commands:
             - cp .npmrc.ci .npmrc
             - npm info || echo "no published package yet"
-            - npm run deploy
+            - npm run release
