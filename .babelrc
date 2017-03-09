@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "es2015",
+        "stage-3"
+    ],
+    "plugins": [
+        "transform-runtime"
+    ],
+    "env": {
+        "development": {"plugins": [ "lodash" ]},
+        "production": {"plugins": [ "lodash" ]},
+        "test": {"plugins": [ "istanbul" ]}
+    }
+}
