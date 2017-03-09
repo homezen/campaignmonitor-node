@@ -14,17 +14,17 @@ Compatible with node, webpack, and browserify
 ## Getting Started
 
 ```bash
-$ npm i --save campaign-monitor
+$ npm i --save campaignmonitor
 ```
 
 ```js
-import campaignMonitor from 'campaign-monitor'
+import campaignMonitor from 'campaignmonitor'
 ```
 
 You must initialize the object with options before using.
 
 ```js
-import campaignMonitor from 'campaign-monitor'
+import campaignMonitor from 'campaignmonitor'
 
 const api = campaignMonitor(options)
 ```
