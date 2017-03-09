@@ -1,9 +1,8 @@
 # Campaign Monitor API wrapper
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/homezen/campaignmonitor-node.svg)](https://greenkeeper.io/)
-
 [![CircleCI](https://circleci.com/gh/homezen/campaignmonitor-node.svg?style=svg)](https://circleci.com/gh/homezen/campaignmonitor-node)
 [![codecov](https://codecov.io/gh/homezen/campaignmonitor-node/branch/master/graph/badge.svg)](https://codecov.io/gh/homezen/campaignmonitor-node)
+[![Greenkeeper badge](https://badges.greenkeeper.io/homezen/campaignmonitor-node.svg)](https://greenkeeper.io/)
 
 Universal javascript wrapper for campaign monitor api
 
