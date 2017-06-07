@@ -1,6 +1,6 @@
 {
   "name": "campaignmonitor",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Wrapper for campaign monitor api",
   "main": "lib/index.js",
   "scripts": {
