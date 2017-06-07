@@ -30,7 +30,7 @@
   "author": "homezen <engineering@myhomezen.com>",
   "license": "BSD-3-Clause",
   "engines": {
-    "node": "^4 || ^6 || ^7",
+    "node": "^4 || ^6 || ^8",
     "npm": "^2 || ^3 || ^4"
   },
   "devDependencies": {
