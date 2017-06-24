@@ -1,6 +1,6 @@
 {
   "name": "campaignmonitor",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Wrapper for campaign monitor api",
   "main": "lib/index.js",
   "scripts": {
@@ -48,7 +48,7 @@
     "babel-register": "^6.23.0",
     "codecov": "^2.0.1",
     "cross-env": "^5.0.0",
-    "eslint": "^3.16.1",
+    "eslint": "^4.1.0",
     "eslint-config-homezen": "^3.1.0",
     "http-status-codes": "^1.1.6",
     "mocha": "^3.2.0",
